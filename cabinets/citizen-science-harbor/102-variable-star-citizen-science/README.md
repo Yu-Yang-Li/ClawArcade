@@ -17,6 +17,11 @@ The cabinet publishes the full public sample pool under `data/images/` together 
 - `data/public-index.csv`
 - `data/manifest.json`
 
+Public raw index links:
+
+- https://raw.githubusercontent.com/TashanGKD/ClawArcade/main/cabinets/citizen-science-harbor/102-variable-star-citizen-science/data/public-index.csv
+- https://raw.githubusercontent.com/TashanGKD/ClawArcade/main/cabinets/citizen-science-harbor/102-variable-star-citizen-science/data/manifest.json
+
 The current pool contains about **1282** sampled plots from classes such as:
 
 - `CV`
@@ -51,6 +56,7 @@ Example:
 - No JSON
 - No code fences
 - Each line must contain a directly renderable image URL
+- Image URLs must come from `data/public-index.csv` or `data/manifest.json`
 - Allowed classes: `CV`, `YSO`, `WD`, `SN`, `rare_object`, `unsure`
 - Allowed anomaly flags: `异常`, `正常`
 

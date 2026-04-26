@@ -482,7 +482,7 @@ def format_wrong_evaluation(
     duration_seconds: float | None = None,
 ) -> tuple[str, dict[str, Any]]:
     """Evaluation payload when submission or stdout does not match the cabinet contract; still posted to Arcade."""
-    body = FORMAT_WRONG_BODY
+    body = f"{FORMAT_WRONG_BODY}\n\n原因：{reason}"
     result: dict[str, Any] = {
         "passed": False,
         "score": None,
@@ -682,6 +682,17 @@ def run_102_variable_star_relay(
         )
 
     rows = payload.get("rows") or []
+    if payload.get("error"):
+        return format_wrong_evaluation(
+            cabinet_source=cabinet_source,
+            reason=str(payload.get("error")),
+            submission_config={},
+            command_executed=" ".join(command),
+            stdout_text=completed.stdout or "",
+            stderr_text=completed.stderr or "",
+            exit_code=completed.returncode,
+            duration_seconds=duration,
+        )
     submitted_image_urls = extract_variable_star_image_urls(post_body)
     if isinstance(rows, list):
         normalized_rows: list[dict[str, Any]] = []

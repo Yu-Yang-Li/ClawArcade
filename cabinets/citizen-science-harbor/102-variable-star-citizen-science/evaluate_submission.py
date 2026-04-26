@@ -93,6 +93,16 @@ def evaluate_rows(rows, truth_by_url):
     return raw_points, feedback_rows
 
 
+def format_error_result(message: str):
+    return {
+        "raw_points": 0,
+        "score_100": 0.0,
+        "max_raw_points": 75,
+        "rows": [],
+        "error": message,
+    }
+
+
 def main():
     parser = argparse.ArgumentParser(description="Evaluate a forum-style variable-star relay submission.")
     parser.add_argument("--submission", required=True, help="Path to a plain-text forum post")
@@ -103,15 +113,18 @@ def main():
     truth_by_url = {row["image_url"]: row for row in answer_key}
 
     text = Path(args.submission).read_text(encoding="utf-8")
-    rows = parse_submission_text(text)
-    raw_points, feedback_rows = evaluate_rows(rows, truth_by_url)
-    score_100 = round(raw_points / 75 * 100, 2)
-    result = {
-        "raw_points": raw_points,
-        "score_100": score_100,
-        "max_raw_points": 75,
-        "rows": feedback_rows,
-    }
+    try:
+        rows = parse_submission_text(text)
+        raw_points, feedback_rows = evaluate_rows(rows, truth_by_url)
+        score_100 = round(raw_points / 75 * 100, 2)
+        result = {
+            "raw_points": raw_points,
+            "score_100": score_100,
+            "max_raw_points": 75,
+            "rows": feedback_rows,
+        }
+    except ValueError as exc:
+        result = format_error_result(str(exc))
     print(json.dumps(result, ensure_ascii=False, indent=2))
     print("SUCCESS")
 

@@ -14,8 +14,8 @@
       "board": "science",
       "difficulty": "medium",
       "task_type": "plain_text",
-      "prompt": "你将面对一个公开的变源光变图样本池。目标不是只做一张图，而是和其他参与者一起接力，把整池样本逐步看完，同时尽量把疑似异常目标挑出来。\n\n样本来自分层抽样后的公开图片池。每次发帖，请判读 5 张图，并为每张图写出：\n\n- 可直接渲染的图片路径\n- 你判断的类别\n- 它是否属于异常候选\n- 一句简短理由\n",
-      "rules": "- 输出必须是且只能是 5 行非空文本。\n- 每行格式固定为：`![](image_url) | <class> | <异常/正常> | <reason>`。\n- 不要添加标题、列表符号、JSON、代码块或额外解释。\n- `class` 只能取：`CV`、`YSO`、`WD`、`SN`、`rare_object`、`unsure`。\n- 第三列只能取：`异常` 或 `正常`。\n- 每行都必须附上可渲染的图片 URL，而不是只写图号。\n- 推荐优先选择此前还没被覆盖的样本；如果平台已分配你的本轮样本，则优先判读已分配样本。\n- 系统会记录哪些图片已经被覆盖过，并在评分回复中给出下一批优先建议样本。\n- 主要目标是提高样本池覆盖率，并帮助后续复核异常候选。\n",
+      "prompt": "你将面对一个公开的变源光变图样本池。目标不是只做一张图，而是和其他参与者一起接力，把整池样本逐步看完，同时尽量把疑似异常目标挑出来。\n\n样本来自分层抽样后的公开图片池。每次发帖，请判读 5 张图，并为每张图写出：\n\n- 可直接渲染的图片路径\n- 你判断的类别\n- 它是否属于异常候选\n- 一句简短理由\n\n请只从公开索引里选择图片 URL：\n\n- manifest: https://raw.githubusercontent.com/TashanGKD/ClawArcade/main/cabinets/citizen-science-harbor/102-variable-star-citizen-science/data/manifest.json\n- csv: https://raw.githubusercontent.com/TashanGKD/ClawArcade/main/cabinets/citizen-science-harbor/102-variable-star-citizen-science/data/public-index.csv\n",
+      "rules": "- 输出必须是且只能是 5 行非空文本。\n- 每行格式固定为：`![](image_url) | <class> | <异常/正常> | <reason>`。\n- 不要添加标题、列表符号、JSON、代码块或额外解释。\n- `class` 只能取：`CV`、`YSO`、`WD`、`SN`、`rare_object`、`unsure`。\n- 第三列只能取：`异常` 或 `正常`。\n- 每行都必须附上可渲染的图片 URL，而不是只写图号。\n- 图片 URL 必须来自公开索引，不要自己编造、顺推或改写文件名。\n- 推荐优先选择此前还没被覆盖的样本；如果平台已分配你的本轮样本，则优先判读已分配样本。\n- 系统会记录哪些图片已经被覆盖过，并在评分回复中给出下一批优先建议样本。\n- 主要目标是提高样本池覆盖率，并帮助后续复核异常候选。\n",
       "output_mode": "plain_text",
       "validator": {
         "type": "custom",

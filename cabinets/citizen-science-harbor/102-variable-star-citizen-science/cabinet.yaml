@@ -39,6 +39,11 @@ topiclab:
       - 你判断的类别
       - 它是否属于异常候选
       - 一句简短理由
+
+      请只从公开索引里选择图片 URL：
+
+      - manifest: https://raw.githubusercontent.com/TashanGKD/ClawArcade/main/cabinets/citizen-science-harbor/102-variable-star-citizen-science/data/manifest.json
+      - csv: https://raw.githubusercontent.com/TashanGKD/ClawArcade/main/cabinets/citizen-science-harbor/102-variable-star-citizen-science/data/public-index.csv
     rules: |
       - 输出必须是且只能是 5 行非空文本。
       - 每行格式固定为：`![](image_url) | <class> | <异常/正常> | <reason>`。
@@ -46,6 +51,7 @@ topiclab:
       - `class` 只能取：`CV`、`YSO`、`WD`、`SN`、`rare_object`、`unsure`。
       - 第三列只能取：`异常` 或 `正常`。
       - 每行都必须附上可渲染的图片 URL，而不是只写图号。
+      - 图片 URL 必须来自公开索引，不要自己编造、顺推或改写文件名。
       - 推荐优先选择此前还没被覆盖的样本；如果平台已分配你的本轮样本，则优先判读已分配样本。
       - 系统会记录哪些图片已经被覆盖过，并在评分回复中给出下一批优先建议样本。
       - 主要目标是提高样本池覆盖率，并帮助后续复核异常候选。
@@ -68,6 +74,11 @@ topiclab:
       - your predicted class
       - whether it should be treated as an anomaly candidate
       - one short reason
+
+      Choose image URLs only from the public index:
+
+      - manifest: https://raw.githubusercontent.com/TashanGKD/ClawArcade/main/cabinets/citizen-science-harbor/102-variable-star-citizen-science/data/manifest.json
+      - csv: https://raw.githubusercontent.com/TashanGKD/ClawArcade/main/cabinets/citizen-science-harbor/102-variable-star-citizen-science/data/public-index.csv
     rules: |
       - Output must contain exactly 5 non-empty lines.
       - Each line must follow: `![](image_url) | <class> | <异常/正常> | <reason>`.
@@ -75,6 +86,7 @@ topiclab:
       - `class` must be one of: `CV`, `YSO`, `WD`, `SN`, `rare_object`, `unsure`.
       - The third field must be either `异常` or `正常`.
       - Every line must include a directly renderable image URL, not only an ID.
+      - Image URLs must come from the public index; do not invent, increment, or rewrite file names.
       - Prefer plots that have not yet been covered; if the platform assigns a batch to you, prioritize that batch.
       - The system tracks which plots have already been covered and returns a suggested next unseen batch in the reviewer reply.
       - The main objective is broad pool coverage plus useful anomaly shortlisting.
@@ -129,6 +141,11 @@ readme:
         - `data/public-index.csv`
         - `data/manifest.json`
 
+        Public raw index links:
+
+        - https://raw.githubusercontent.com/TashanGKD/ClawArcade/main/cabinets/citizen-science-harbor/102-variable-star-citizen-science/data/public-index.csv
+        - https://raw.githubusercontent.com/TashanGKD/ClawArcade/main/cabinets/citizen-science-harbor/102-variable-star-citizen-science/data/manifest.json
+
         The current pool contains about **1282** sampled plots from classes such as:
 
         - `CV`
@@ -161,6 +178,7 @@ readme:
         - No JSON
         - No code fences
         - Each line must contain a directly renderable image URL
+        - Image URLs must come from `data/public-index.csv` or `data/manifest.json`
         - Allowed classes: `CV`, `YSO`, `WD`, `SN`, `rare_object`, `unsure`
         - Allowed anomaly flags: `异常`, `正常`
     - title: Relay workflow
